@@ -323,20 +323,22 @@
                         </div>
                         
                         <div class="tech-cta">
-                            <a href="#learn-more" class="btn btn-primary">Learn More</a>
+                            <a href="#nanofiche-demo" class="btn btn-primary">View Live Demo</a>
                         </div>
                     </div>
                     
                     <div class="tech-visual">
-                        <div class="nano-demo">
-                            <div class="magnification-levels">
-                                <div class="mag-level active" data-level="1x">1x</div>
-                                <div class="mag-level" data-level="100x">100x</div>
-                                <div class="mag-level" data-level="400x">400x</div>
+                        <div class="nanofiche-viewer-container">
+                            <div class="viewer-header">
+                                <h4>🔬 Live NanoFiche™ Demo</h4>
+                                <p>Experience ultra-high resolution text microscribed at nanoscale</p>
                             </div>
-                            <div class="nano-display">
-                                <div class="nano-content">
-                                    <div class="text-visualization"></div>
+                            <div class="medallion-viewer-embed" id="medallionViewer">
+                                <div class="viewer-placeholder">
+                                    <i class="fas fa-search-plus"></i>
+                                    <h5>Interactive Viewer</h5>
+                                    <p>Click to explore nanoscale text</p>
+                                    <button class="btn btn-secondary" onclick="loadViewer()">Launch Viewer</button>
                                 </div>
                             </div>
                         </div>
@@ -766,6 +768,36 @@
             // Fallback - open email
             window.location.href = 'mailto:support@sarahha.com?subject=Customer Support Inquiry';
         }
+    }
+    
+    function loadViewer() {
+        const viewerContainer = document.getElementById('medallionViewer');
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://nanofiche.com/vm/gita-bhakti.html';
+        iframe.className = 'viewer-iframe';
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('title', 'NanoFiche™ Interactive Viewer - Gita Bhakti Demo');
+        
+        // Replace placeholder with iframe
+        viewerContainer.innerHTML = '';
+        viewerContainer.appendChild(iframe);
+        
+        // Add loading indicator
+        const loadingDiv = document.createElement('div');
+        loadingDiv.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary-gold); font-size: 1.2rem;';
+        loadingDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading NanoFiche™ Demo...';
+        viewerContainer.appendChild(loadingDiv);
+        
+        // Remove loading indicator after iframe loads
+        iframe.onload = function() {
+            if (loadingDiv.parentNode) {
+                loadingDiv.remove();
+            }
+        };
+        
+        // Smooth scroll to viewer
+        viewerContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     </script>
 </body>

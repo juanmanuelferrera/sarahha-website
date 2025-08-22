@@ -819,6 +819,86 @@ a {
     }
 }
 
+/* NanoFiche Viewer Integration */
+.nanofiche-viewer-container {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+}
+
+.viewer-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.viewer-header h4 {
+    color: var(--primary-gold);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+}
+
+.viewer-header p {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+}
+
+.medallion-viewer-embed {
+    width: 100%;
+    max-width: 400px;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--primary-gold);
+    background: var(--gray-900);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.viewer-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.viewer-placeholder i {
+    font-size: 3rem;
+    color: var(--primary-gold);
+    margin-bottom: var(--space-lg);
+}
+
+.viewer-placeholder h5 {
+    color: var(--white);
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+}
+
+.viewer-placeholder p {
+    margin-bottom: var(--space-lg);
+    opacity: 0.8;
+}
+
+.viewer-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-lg);
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-20px) rotate(180deg); }
